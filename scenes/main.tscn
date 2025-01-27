@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://b7c4u4ncjttch"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_rftck"]
+[ext_resource type="PackedScene" uid="uid://cispj5iatl14m" path="res://scenes/world.tscn" id="1_sabwi"]
+[ext_resource type="PackedScene" uid="uid://b7owawqke136j" path="res://scenes/player.tscn" id="2_ayqac"]
+[ext_resource type="PackedScene" uid="uid://dj67njd3q8taq" path="res://scenes/enemy_spawner.tscn" id="3_uijkg"]
+[ext_resource type="Script" path="res://scripts/bullet_manager.gd" id="4_3t1vb"]
+[ext_resource type="PackedScene" uid="uid://ctrjmydj5lw6i" path="res://scenes/bullet.tscn" id="5_pv071"]
+[ext_resource type="PackedScene" uid="uid://2per6cykfhg6" path="res://scenes/hud.tscn" id="7_o2hqg"]
+[ext_resource type="PackedScene" uid="uid://cgi5b01lsktxq" path="res://scenes/game_over.tscn" id="8_hesdq"]
+[ext_resource type="PackedScene" uid="uid://dn5dtrwfhha4e" path="res://scenes/heart_card.tscn" id="9_6qp05"]
+[ext_resource type="PackedScene" uid="uid://cl3sukjfcupkq" path="res://scenes/gun_card.tscn" id="9_fbf70"]
+[ext_resource type="PackedScene" uid="uid://cxchrc861dtdm" path="res://scenes/boss_spawner.tscn" id="11_5vxfl"]
+[ext_resource type="PackedScene" uid="uid://5rcgpgm75ik4" path="res://scenes/super_card.tscn" id="12_e6881"]
+[ext_resource type="PackedScene" uid="uid://b6po1de0lgp55" path="res://scenes/xmark.tscn" id="13_v21vt"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_rftck")
+
+[node name="World" parent="." instance=ExtResource("1_sabwi")]
+
+[node name="Player" parent="." instance=ExtResource("2_ayqac")]
+position = Vector2(109, 287)
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource("4_3t1vb")
+bullet_scene = ExtResource("5_pv071")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_uijkg")]
+
+[node name="BossSpawner" parent="." instance=ExtResource("11_5vxfl")]
+
+[node name="WaveOverTimes" type="Timer" parent="."]
+process_mode = 2
+one_shot = true
+
+[node name="RestartTimer" type="Timer" parent="."]
+process_mode = 2
+wait_time = 0.3
+one_shot = true
+
+[node name="BossRestartTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="SuperPowerTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Hud" parent="." instance=ExtResource("7_o2hqg")]
+offset = Vector2(0, 1100)
+transform = Transform2D(1, 0, 0, 1, 0, 1100)
+
+[node name="GameOver" parent="." instance=ExtResource("8_hesdq")]
+process_mode = 2
+
+[node name="HeartCard" parent="." instance=ExtResource("9_6qp05")]
+process_mode = 2
+visible = false
+
+[node name="GunCard" parent="." instance=ExtResource("9_fbf70")]
+process_mode = 2
+visible = false
+
+[node name="SuperCard" parent="." instance=ExtResource("12_e6881")]
+process_mode = 2
+visible = false
+
+[node name="Xmark" parent="." instance=ExtResource("13_v21vt")]
+visible = false
+z_index = 3
+
+[connection signal="shoot" from="Player" to="BulletManager" method="_on_player_shoot"]
+[connection signal="hit_b" from="BulletManager" to="." method="_on_bullet_manager_hit_b"]
+[connection signal="hit_p" from="EnemySpawner" to="." method="_on_enemy_spawner_hit_p"]
+[connection signal="hit_p" from="BossSpawner" to="." method="_on_boss_spawner_hit_p"]
+[connection signal="timeout" from="WaveOverTimes" to="." method="_on_wave_over_times_timeout"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
+[connection signal="timeout" from="BossRestartTimer" to="." method="_on_boss_restart_timer_timeout"]
+[connection signal="timeout" from="SuperPowerTimer" to="." method="_on_super_power_timer_timeout"]

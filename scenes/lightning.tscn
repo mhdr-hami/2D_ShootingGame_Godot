@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://brn4k5totqsm7"]
+
+[ext_resource type="Texture2D" uid="uid://bef2a3b01ckyd" path="res://assets/lightning2.png" id="1_mdow2"]
+[ext_resource type="Texture2D" uid="uid://chqh2irhvkix" path="res://assets/lightning0.png" id="2_12sxc"]
+[ext_resource type="Texture2D" uid="uid://dkg75x8g3jpqn" path="res://assets/lightning1.png" id="3_7n1bp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qe360"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mdow2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_12sxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7n1bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_12sxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_mdow2")
+}],
+"loop": false,
+"name": &"lightning",
+"speed": 8.0
+}]
+
+[node name="Lightning" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(366.25, 156.5)
+scale = Vector2(0.0888462, 0.103125)
+sprite_frames = SubResource("SpriteFrames_qe360")
+animation = &"lightning"
+autoplay = "lightning"
+frame = 4
+frame_progress = 1.0

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://5rcgpgm75ik4"]
+
+[ext_resource type="Texture2D" uid="uid://ia0rbvelblcp" path="res://assets/card.png" id="1_d4khv"]
+[ext_resource type="Texture2D" uid="uid://d3honebkx153i" path="res://assets/superPower.png" id="2_75fq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32d01"]
+draw_center = false
+
+[node name="SuperCard" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 361.0
+offset_top = 470.0
+offset_right = 481.0
+offset_bottom = 650.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_32d01")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(417.4, 557.4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_d4khv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 373.0
+offset_top = 498.0
+offset_right = 470.0
+offset_bottom = 571.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "SUPPER 
+KILL
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(421, 591)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_75fq5")

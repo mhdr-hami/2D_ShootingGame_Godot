@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn5dtrwfhha4e"]
+
+[ext_resource type="Texture2D" uid="uid://ia0rbvelblcp" path="res://assets/card.png" id="1_iqib2"]
+[ext_resource type="Texture2D" uid="uid://txysa54jrj7j" path="res://assets/items/heart.png" id="2_1m4ph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfw6x"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxco8"]
+draw_center = false
+
+[node name="HeartCard" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 362.4
+offset_top = 470.4
+offset_right = 482.4
+offset_bottom = 650.4
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_jfw6x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(418.4, 557.4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_iqib2")
+
+[node name="CardTypeLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -94.0
+offset_right = -116.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0679579, 0.261039, 0.384324, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_dxco8")
+text = "+3 "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Heart_Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(422.4, 583)
+scale = Vector2(6, 6)
+texture = ExtResource("2_1m4ph")

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgi5b01lsktxq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g5tc"]
+bg_color = Color(0.328004, 0.274601, 0.677627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52rgb"]
+bg_color = Color(0.998462, 0.300531, 0.517149, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6qxv"]
+bg_color = Color(0.393732, 0.816457, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwhjt"]
+bg_color = Color(0.361439, 0.646443, 0.737519, 1)
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6g5tc")
+
+[node name="GameOverLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -87.5
+offset_right = 90.0
+offset_bottom = -45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WavesSurvivedLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -21.0
+offset_right = 142.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "WAVES SURVIVED: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 32.5
+offset_right = 125.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_52rgb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p6qxv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kwhjt")
+text = "PLAY AGAIN"

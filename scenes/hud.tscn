@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://2per6cykfhg6"]
+
+[ext_resource type="Texture2D" uid="uid://txysa54jrj7j" path="res://assets/items/heart.png" id="1_5fm6b"]
+[ext_resource type="Texture2D" uid="uid://dpj0bd1ba6sm8" path="res://assets/enemies/goblin/goblin_idle_anim_f0.png" id="2_0eha7"]
+[ext_resource type="Texture2D" uid="uid://lax5wio22328" path="res://assets/Mob/Snail/TheSnailPic.png" id="3_fdhy6"]
+[ext_resource type="Texture2D" uid="uid://d3honebkx153i" path="res://assets/superPower.png" id="4_utfib"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3laq5"]
+border_width_top = 4
+border_color = Color(0, 0, 0, 1)
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = -1.0
+offset_right = 1200.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3laq5")
+
+[node name="HeartSprite" type="Sprite2D" parent="."]
+position = Vector2(38, 24)
+scale = Vector2(3, 3)
+texture = ExtResource("1_5fm6b")
+
+[node name="LivesLabel" type="Label" parent="."]
+offset_left = 66.0
+offset_right = 110.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "X 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 296.0
+offset_right = 413.0
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "WAVE: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(1071, 13)
+scale = Vector2(4, 4)
+texture = ExtResource("2_0eha7")
+
+[node name="EnemiesLabel" type="Label" parent="."]
+offset_left = 1106.0
+offset_right = 1167.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "X 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SnailBossSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1076, 21.5)
+scale = Vector2(0.8875, 0.930556)
+texture = ExtResource("3_fdhy6")
+
+[node name="SuperSprite" type="Sprite2D" parent="."]
+position = Vector2(201.84, 21)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("4_utfib")
+
+[node name="SuperLabel" type="Label" parent="."]
+offset_left = 229.84
+offset_top = -1.0
+offset_right = 289.84
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 30
+text = "X 0"
+horizontal_alignment = 1
+vertical_alignment = 1
